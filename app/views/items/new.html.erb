@@ -1,1 +1,28 @@
-<h1>Add a new piece to your Gallery</h1>
+<h1>Add a new Artwork to your Gallery</h1>
+
+<%= form_with model: @item do |form| %>
+    <p>
+        <%= label(:name, "Name") %>
+        <%= form.text_field :name, required: true, minlength: 1 %>
+    </p>
+    <p>
+        <%= label(:category, "Category") %>
+        <%= form.text_field :category %>
+    </p>
+    <p>
+        <%= label(:description, "Description") %>
+        <%= form.text_field :description %>
+    </p>
+    <p>
+        <%= form.label :price %>
+        <%= form.number_field :price, min: 0, step: "0.01" %>
+    </p>
+    <p>
+       <%= form.label :item_image, "Image"%>
+       <%= form.file_field :item_image, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
+    </p>
+    
+    <%= form.submit "Add Art", class: "btn btn-success" %>
+<% end %>
+
+<%# params[:item][:name], params[:item][:category], params[:item][:description], params[:item][:price], params[:book][:item_image] %>

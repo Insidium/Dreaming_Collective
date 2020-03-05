@@ -1,0 +1,19 @@
+<h1>New Artist Registration</h1>
+
+<%= form_with model: @artist do |form| %>
+    <p>
+        <%= label(:nation, "Nation/Tribe") %>
+        <%= form.text_field :nation, required: true, minlength: 1 %>
+    </p>
+    <p>
+        <%= label(:bio, "About You") %>
+        <%= form.text_field :bio %>
+    </p>
+    <p>
+       <%= form.label :artist_image, "Profile Picture (can be a placeholder image)"%>
+       <%= form.file_field :artist_image, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
+    </p>
+    
+    
+    <%= form.submit "Register", class: "btn btn-success" %>
+<% end %>
