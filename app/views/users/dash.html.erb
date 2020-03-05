@@ -1,3 +1,6 @@
-<h1>Dashboard</h1>
-
-<%= link_to "Become An Artist", new_artist_path, class:"btn btn-info" %>
+<% if user_signed_in? %>
+    <h1>Dashboard</h1>
+    <p>Welcome to your TDC dashboard. From here you can do all the things!</p>
+    <%= link_to "Buy Art", new_artist_path, class:"btn btn-warning" %>
+    <%= link_to "Become An Artist", new_artist_path, class:"btn btn-info" %>
+<% end %>
