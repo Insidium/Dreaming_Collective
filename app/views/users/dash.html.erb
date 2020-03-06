@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <h1>Dashboard</h1>
+    <h1>Your Dashboard</h1>
     <p>Welcome to your TDC dashboard. From here you can do all the things!</p>
     <%= link_to "Buy Art", all_items_path, class:"btn btn-warning" %>
     <% if !current_user.artist %>

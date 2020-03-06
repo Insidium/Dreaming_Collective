@@ -2,13 +2,13 @@ class OrdersController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:webhook]
 
   def new
-    @item = Item.find(params[:book_id])
+    @item = Item.find(params[:item_id])
     @session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: [{
-      name: @item.title,
-      description: "by #{@item.artist.name}",
-      images: ["#{@item.picture.service_url if @item.picture.attached?}"],
+      name: @item.name,
+      description: "by #{@item.artist.user.first_name} #{@item.artist.user.last_name}",
+      images: ["#{@item.item_image.service_url if @item.item_image.attached?}"],
       amount: (@item.price * 100).to_i,
       currency: 'aud',
       quantity: 1,

@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 
     def create
         item = Item.new(item_params)
-        item.artist_id = current_user.id
+        item.artist_id = current_user.artist.user_id
         item.item_image.attach(params[:item][:item_image])
         if item.save
             flash[:notice] = "Deadly! Artwork added successfully."

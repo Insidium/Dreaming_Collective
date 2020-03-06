@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get "/artists/:id", to: "artists#show", as: "artist"
 
   #New Order
-  get "/orders/new", to: "orders#new"
+  get "/orders/new", to: "orders#new", as: "new_order"
   #Order complete
   get "/orders/complete", to: "orders#complete"
   #Order Webhook
