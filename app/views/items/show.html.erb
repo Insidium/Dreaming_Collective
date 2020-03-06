@@ -1,6 +1,6 @@
 
 <h2><%= @item.name%></h2>
-<%= image_tag @item.item_image, class: "img-thumbnail box", width: 120 if @item.item_image.attached? %>
+<%= image_tag @item.item_image, class: "img-thumbnail box", width: 400 if @item.item_image.attached? %>
 <p><%= @item.artist.user.last_name%></p>
 <p><%= @item.category%></p> 
 <p><%= @item.description%></p> 

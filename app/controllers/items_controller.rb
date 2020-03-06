@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     
     def index
-        @items = Item.order_by_artist_name
+        @items = Item.all_items()
     end
 
     def show

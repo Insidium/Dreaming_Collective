@@ -2,12 +2,8 @@ class Item < ApplicationRecord
   belongs_to :artist
   has_one_attached :item_image
 
-  def self.order_by_artist_name(artist)
-    items = []
-    Artist.all.order(:last_name).each do | artist |
-      items += artist.items.order(:name)
-    end
-    return items
+  def self.all_items
+    items = Item.all.reverse_order
   end
 
 end

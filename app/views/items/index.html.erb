@@ -1,0 +1,8 @@
+<p>all the things go here</p>
+
+<%if @items %>
+    <% @items.each do |item|%>
+        <p><%= link_to item.name, item_path(item) %></p>
+        <p><%=item.name%></p>
+    <%end%>
+<%end%>
