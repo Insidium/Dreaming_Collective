@@ -4,10 +4,9 @@ class ItemsController < ApplicationController
         @items = Item.order_by_artist_name
     end
 
-    # # if user_signed_in? as artist?
-    # def show
-    #     @item = Item.find(params[:id])
-    # end
+    def show
+        @item = Item.find(params[:id])
+    end
 
     def new
         @item = Item.new
@@ -16,6 +15,7 @@ class ItemsController < ApplicationController
     def create
         item = Item.new(item_params)
         item.artist_id = current_user.id
+        item.item_image.attach(params[:item_image])
         if item.save
             flash[:notice] = "Deadly! Artwork added successfully."
             redirect_to item_path(item.id)

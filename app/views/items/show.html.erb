@@ -1,1 +1,10 @@
-<h1>Here is thou art</h1>
+
+<h2><%= @item%></h2>
+<%= image_tag @item.item_image, class: "img-thumbnail box", width: 120 if @item.item_image.attached? %>
+<p><%= @item.artist.user.last_name%></p>
+<p><%= @item.category%></p> 
+<p><%= @item.description%></p> 
+<% if @item.price %>
+    <p><%= number_to_currency @item.price %></p>
+    <%= link_to "Buy Now", new_order_path(item_id: @item.id), class: "btn btn-success" %>
+<% end  %>

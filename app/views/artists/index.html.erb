@@ -1,1 +1,10 @@
 <h1>Check out our Artists!</h1>
+
+<%if @artists %>
+    <% @artists.each do |artist|%>
+        <p><%= link_to artist.user.last_name, artist_path(artist) %></p>
+        <% artist.items_ordered_by_name.each do |item|%>
+            <p><%=item.name%></p>
+        <%end%>
+    <%end%>
+<%end%>

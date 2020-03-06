@@ -1,6 +1,11 @@
 <% if user_signed_in? %>
     <h1>Dashboard</h1>
     <p>Welcome to your TDC dashboard. From here you can do all the things!</p>
-    <%= link_to "Buy Art", new_artist_path, class:"btn btn-warning" %>
-    <%= link_to "Become An Artist", new_artist_path, class:"btn btn-info" %>
+    <%= link_to "Buy Art", all_items_path, class:"btn btn-warning" %>
+    <% if !current_user.artist %>
+        <%= link_to "Become An Artist", new_artist_path, class:"btn btn-info" %>
+    <% else %>
+        <%= link_to "New Art Listing", new_item_path, class:"btn btn-success" %>
+    <% end  %>
 <% end %>
+<p><%= link_to "Back", :back %></p>

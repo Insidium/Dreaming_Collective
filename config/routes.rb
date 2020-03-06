@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #Create new artwork item
   get "/items/new", to: "items#new", as: "new_item"
   post "/items", to: "items#create"
+  #Show all Art
+  get "/items/all", to: "items#index", as: "all_items"
   #Show individual piece of art
   get "/items/:id", to: "items#show", as: "item"
 
@@ -19,10 +21,12 @@ Rails.application.routes.draw do
   get "/artists/new", to: "artists#new", as: "new_artist"
   post "/artists", to: "artists#create"
   #Show Artists
-  get "/artists", to: "artists#index", as: "all_artists"
+  get "/artists/all", to: "artists#index", as: "all_artists"
   # Show individual Artist
   get "/artists/:id", to: "artists#show", as: "artist"
 
+  #New Order
+  get "/orders/new", to: "orders#new"
   #Order complete
   get "/orders/complete", to: "orders#complete"
   #Order Webhook

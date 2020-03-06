@@ -1,4 +1,14 @@
 class ArtistsController < ApplicationController
+    
+    def index
+        @artists = Artist.all.order(:last_name)
+        
+    end
+
+    def show
+        @artists = Artist.find(params[:id])
+    end
+
     def new
         @artist = Artist.new
         @artist.advocate = Advocate.first
