@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     def create
         item = Item.new(item_params)
         item.artist_id = current_user.id
-        item.item_image.attach(params[:item_image])
+        item.item_image.attach(params[:item][:item_image])
         if item.save
             flash[:notice] = "Deadly! Artwork added successfully."
             redirect_to item_path(item.id)
