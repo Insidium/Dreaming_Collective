@@ -15,7 +15,7 @@
  body {
     min-height: 100vh;
     background-image: url(image_path("#"));
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: right bottom;
     background-attachment: fixed;
 }
@@ -37,9 +37,16 @@ td {
 }
 
 .welcome {
-    text-align: center;
+    text-align: right;
+    vertical-align: right;
+    line-height: 90px;
 }
 
 .tdc-name {
     color: #9f2325;
+}
+
+.home-container {
+    width: 50%;
+    margin: 0 auto;
 }
