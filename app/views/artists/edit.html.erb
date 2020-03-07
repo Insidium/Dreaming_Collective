@@ -1,5 +1,6 @@
 
-<h2>Your Artist Profile</h2>
+<h2>Edit Your Artist Bio</h2>
+
 <%= form_with model: @artist do |form| %>
 <%= form.label :bio, 'About Me' %>
 <%= form.text_area :bio, class: "tinymce", rows: 20, cols: 80 %>
