@@ -33,8 +33,8 @@
       </div>
       <section class="top-nav">
         <% if user_signed_in? %>
-            <div id="logout"><%= link_to 'Logout', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
             <div id="username"><%= link_to current_user.first_name, dashboard_path(id: current_user.id) %></div>
+            <div id="logout"><%= link_to 'Logout', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
         <% else %>
             <p><%= link_to 'Login', new_user_session_path, class:"top-nav-link"%>
             |
@@ -45,16 +45,16 @@
     </nav>
       <div class="container">
       <% if notice  %>
-        <p class="notice alert-success"><%= notice %></p>
+        <div class="alert alert-info" role="alert"><%= notice %></div>
       <% end %>
 
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
       <% end %>
 
 
       <section class="row">
-        <section class="col-10">
+        <section>
         <%= yield %>
         </section>
       </section>

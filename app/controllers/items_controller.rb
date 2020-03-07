@@ -25,6 +25,12 @@ class ItemsController < ApplicationController
         end
     end
 
+    def destroy
+        Item.destroy(params[:id])
+        flash[:notice] = "Artwork was successfully removed from your Gallery."
+        redirect_to dashboard_path
+    end
+
     private 
     def item_params
         params.require(:item).permit(:name,:category, :description, :price, :item_image)

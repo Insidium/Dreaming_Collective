@@ -1,9 +1,8 @@
-<h2>Check out our Artists!</h2>
+<h2>Check out our Artists</h2>
 
 <%if @artists %>
     <% @artists.each do |artist|%>
         <%= image_tag artist.artist_image, class: "img-thumbnail box", width: 200 if artist.artist_image.attached? %>
-        <p><%=artist.user.first_name%> <%=link_to artist.user.last_name, artist_path(artist) %></p>
-        <hr>
+        <p><%=link_to "#{artist.user.first_name} #{artist.user.last_name}", artist_path(artist) %></p>
     <%end%>
 <%end%>

@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   #Create new artwork item
   get "/items/new", to: "items#new", as: "new_item"
   post "/items", to: "items#create"
-  #Show all Art
+  #Show all art
   get "/items/all", to: "items#index", as: "all_items"
   #Show individual piece of art
   get "/items/:id", to: "items#show", as: "item"
+  # Remove item listing
+  delete "/items/:id", to: "items#destroy"
 
   #New Artist
   get "/artists/new", to: "artists#new", as: "new_artist"
