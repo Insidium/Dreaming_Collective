@@ -1,1 +1,9 @@
-<h1>Artist Name</h1>
+<h2><%= @artist.user.first_name %> <%= @artist.user.last_name %></h2>
+<%= @artist.bio.html_safe %>
+<h3>Gallery</h3>
+<% @artist.items.each do |item|%>
+    <p><%=item.name%></p>
+    <%= image_tag item.item_image, class: "img-thumbnail box", width: 200 if item.item_image.attached? %>
+<%end%>
+<p><%=link_to 'Go to Homepage', root_path%></p>
+<p><%=link_to 'Back', :back%></p>

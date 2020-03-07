@@ -7,10 +7,40 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= tinymce_assets %>
   </head>
 
   <body>
-  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">The Dreaming Collective</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/artists/all">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/items/all">Artwork</a>
+          </li>
+        </ul>
+      </div>
+      <section class="top-nav">
+        <% if user_signed_in? %>
+            <div id="logout"><%= link_to 'Logout', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
+            <div id="username"><%= link_to current_user.email, dashboard_path(id: current_user.id) %></div>
+        <% else %>
+            <p><%= link_to 'Login', new_user_session_path, class:"top-nav-link"%>
+            |
+            <%= link_to 'Sign Up', new_user_registration_path, class:"top-nav-link"%>
+            </p>
+        <% end %>
+      </section>
+    </nav>
       <div class="container">
       <% if notice  %>
         <p class="notice"><%= notice %></p>
@@ -19,7 +49,7 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <%= render "partials/topnav" %>
+
 
       <section class="row">
         <section class="col-10">

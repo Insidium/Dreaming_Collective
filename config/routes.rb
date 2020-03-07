@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   #New Artist
   get "/artists/new", to: "artists#new", as: "new_artist"
   post "/artists", to: "artists#create"
+
+  #Artist Profile
+  get "/artists/:id/edit", to:"artists#edit", as: "edit_artist"
+  put "/artists/:id", to: "artists#update"
+  patch "/artists/:id", to: "artists#update"
+
   #Show Artists
   get "/artists/all", to: "artists#index", as: "all_artists"
   # Show individual Artist

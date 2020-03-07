@@ -1,12 +1,11 @@
 class ArtistsController < ApplicationController
     
     def index
-        @artists = Artist.all.order(:last_name)
-        
+        @artists = Artist.all
     end
 
     def show
-        @artists = Artist.find(params[:id])
+        @artist = Artist.find(params[:id])
     end
 
     def new
@@ -23,6 +22,18 @@ class ArtistsController < ApplicationController
         else
             flash[:alert] = artist.errors.full_messages[0]
             redirect_to new_artist_path
+        end
+    end
+
+    def edit
+        @artist = Artist.find(params[:id])
+    end
+
+    def update
+        @artist = Artist.find(params[:id])
+        @artist.bio = params[:artist][:bio]
+        if @artist.save
+            redirect_to artist_path
         end
     end
     

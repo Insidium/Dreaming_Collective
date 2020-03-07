@@ -11,3 +11,11 @@
  * It is generally better to create a new file per style scope.
  */
  @import "bootstrap";
+
+ body {
+    min-height: 100vh;
+    background-image: url(image_path("#"));
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-attachment: fixed;
+}

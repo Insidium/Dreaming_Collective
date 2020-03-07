@@ -212,6 +212,8 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    tinymce-rails (5.2.0)
+      railties (>= 3.1.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -260,6 +262,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe (~> 5.17)
+  tinymce-rails (~> 5.2)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
