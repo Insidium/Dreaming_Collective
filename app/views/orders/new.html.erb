@@ -1,5 +1,6 @@
 <h1 class="list-item"> Your order
 </h1>
+<%= image_tag @item.item_image, class: "img-thumbnail box", width: 400 if @item.item_image.attached? %>
 <table>
 <thead> <tr>
      <th>Name</th>
@@ -9,13 +10,13 @@
  </thead>
 <tbody> <tr>
 <td><%= @item.name %></td>
-<td><%= @item.artist.user.last_name %></td>
+<td><%= @item.artist.user.first_name %> <%= @item.artist.user.last_name %></td>
 <td><%= number_to_currency @item.price %></td>
    </tr>
  </tbody>
 </table>
 <button id="pay-now" class="btn btn-success">Checkout Now</button>
-
+<hr>
 <p><%= link_to "Back", :back %></p>
 
 <script src="https://js.stripe.com/v3/"></script>

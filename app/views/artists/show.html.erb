@@ -1,4 +1,6 @@
 <h2><%= @artist.user.first_name %> <%= @artist.user.last_name %></h2>
+<%= image_tag @artist.artist_image, class: "img-thumbnail box", width: 200 if @artist.artist_image.attached? %>
+<h5>About Me</h5>
 <%= @artist.bio.html_safe %>
 <h3>Gallery</h3>
 <% @artist.items.each do |item|%>
