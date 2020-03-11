@@ -1,18 +1,22 @@
 class ArtistsController < ApplicationController
     
+    # Display all artists
     def index
         @artists = Artist.all
     end
 
+    # Display selected artist
     def show
         @artist = Artist.find(params[:id])
     end
 
+    # New artist
     def new
         @artist = Artist.new
         @artist.advocate = Advocate.first
     end
     
+    # Create new artist and send confirmation/throw error
     def create
         artist = Artist.new(artist_params)
         artist.user_id = current_user.id
@@ -25,10 +29,12 @@ class ArtistsController < ApplicationController
         end
     end
 
+    # Edit artist profile
     def edit
         @artist = Artist.find(params[:id])
     end
 
+    # Accept edits and update artist
     def update
         @artist = Artist.find(params[:id])
         @artist.bio = params[:artist][:bio]
@@ -37,6 +43,7 @@ class ArtistsController < ApplicationController
         end
     end
     
+    # Set artist params
     private 
     def artist_params
         params.require(:artist).permit(:nation, :bio, :artist_image)

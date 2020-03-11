@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   root to: "users#index"
   get "/", to: "users#index", as: "home"
 
+  #About Page
+  get "/about", to: "users#about", as: "about"
+
+  #Donate Page
+  get "/donate", to: "users#donate", as: "donate"
+
   #User Dashboard
   get "/dashboard/:id", to: "users#dash", as: "dashboard"
 
