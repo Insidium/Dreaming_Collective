@@ -1,8 +1,10 @@
 <h2>Check out our Artists</h2>
-
+<br>
+<%# Display all artists registered on TDC %>
 <%if @artists %>
     <% @artists.each do |artist|%>
         <%= image_tag artist.artist_image, class: "img-thumbnail box", width: 200 if artist.artist_image.attached? %>
         <p><%=link_to "#{artist.user.first_name} #{artist.user.last_name}", artist_path(artist) %></p>
     <%end%>
 <%end%>
+<p><%= link_to "Back", :back %></p>

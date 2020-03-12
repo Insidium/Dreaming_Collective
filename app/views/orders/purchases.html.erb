@@ -1,6 +1,7 @@
 <h2>Your Purchases</h2>
 <br>    
 <div>
+<%# if user is signed in as artist or non-artist, show purchased items list %>
     <%if user_signed_in?%>
         <% @purchases.each do |order|%>
         <%= image_tag order.item.item_image, class: "img-thumbnail box", width: 400 if order.item.item_image.attached? %>
@@ -10,3 +11,4 @@
         <%end%>
     <%end%>
 </div>
+<p><%= link_to "Back", :back %></p>

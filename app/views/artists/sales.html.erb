@@ -1,6 +1,7 @@
 <h2>Your Sales</h2>
 <br>    
 <div>
+    <%# If user is signed in as an artist, display their sales history %>
     <%if user_signed_in?%>
         <% @sales.each do |item|%>
         <%= image_tag item.item_image, class: "img-thumbnail box", width: 400 if item.item_image.attached? %>
@@ -13,3 +14,4 @@
         <%end%>
     <%end%>
 </div>
+<p><%= link_to "Back", :back %></p>

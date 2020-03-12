@@ -1,11 +1,15 @@
+<%# Show individual artist profile %>
 <h2><%= @artist.user.first_name %> <%= @artist.user.last_name %></h2>
+<br>
 <%= image_tag @artist.artist_image, class: "img-thumbnail box", width: 200 if @artist.artist_image.attached? %>
 <h5>About Me</h5>
+<br>
 <%= @artist.bio.html_safe %>
 <h3>Gallery</h3>
+<br>
 <% @artist.items.each do |item|%>
     <%= image_tag item.item_image, class: "img-thumbnail box", width: 200 if item.item_image.attached? %>
     <p><%= link_to item.name, item_path(item) %></p>
 <%end%>
-
+<br>
 <p><%=link_to 'Back', :back%></p>

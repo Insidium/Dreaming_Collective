@@ -1,5 +1,6 @@
 <h2>Add a new Artwork to your Gallery</h2>
-
+<br>
+<%# Form to add new art listing %>
 <%= form_with model: @item do |form| %>
     <p>
         <%= label(:name, "Name") %>
@@ -25,4 +26,4 @@
     <%= form.submit "Add Art", class: "btn btn-success" %>
 <% end %>
 
-<%# params[:item][:name], params[:item][:category], params[:item][:description], params[:item][:price], params[:book][:item_image] %>
+<p><%= link_to "Back", :back %></p>

@@ -1,5 +1,6 @@
-
+<%# Show individual artwork listing %>
 <h2><%= @item.name%></h2>
+<br>
 <%= image_tag @item.item_image, class: "img-thumbnail box", width: 400 if @item.item_image.attached? %>
 <h5><strong><%= @item.artist.user.first_name%> <%= @item.artist.user.last_name%></strong></h5>
 <p><strong>Category:</strong> <%= @item.category%></p> 
@@ -7,6 +8,7 @@
 <% if @item.price %>
     <p><%= number_to_currency @item.price %></p>
     <% if user_signed_in? %>
+        <%# if not sold show buy now button, otherwise hide button and show purchaser name %>
         <% if !@item.order %>
             <%= link_to "Buy Now", new_order_path(item_id: @item.id), class: "btn btn-success" %>
         <% else %>
@@ -14,3 +16,4 @@
         <% end %>
     <% end %>
 <% end  %>
+<p><%= link_to "Back", :back %></p>

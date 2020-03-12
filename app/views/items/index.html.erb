@@ -1,5 +1,6 @@
 <h2>Our Gallery</h2>
-<br>    
+<br>
+<%# Show each artwork listed on TDC %>
 <%if @items %>
     <% @items.each do |item|%>
         <%= image_tag item.item_image, class: "img-thumbnail box", width: 200 if item.item_image.attached? %>
@@ -9,3 +10,4 @@
         <% end %>
     <%end%>
 <%end%>
+<p><%= link_to "Back", :back %></p>

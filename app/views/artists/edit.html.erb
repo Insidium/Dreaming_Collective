@@ -1,6 +1,7 @@
 
 <h2>Edit Your Artist Bio</h2>
-
+<br>
+<%# Form for artist to edit profile %>
 <%= form_with model: @artist do |form| %>
 <%= form.label :artist_image, "Profile Picture (can be a placeholder)"%>
 <%= form.file_field :artist_image, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
@@ -10,3 +11,4 @@
 <%= tinymce %>
 <%= form.submit %>
 <%end%>
+<p><%= link_to "Back", :back %></p>

@@ -38,6 +38,7 @@
         </ul>
       </div>
       <section class="top-nav">
+        <%# if signed in, show user name above logout button on far right of nav %>
         <% if user_signed_in? %>
             <div id="username"><%= link_to current_user.first_name, dashboard_path(id: current_user.id) %></div>
             <div id="logout"><%= link_to 'Logout', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
@@ -59,12 +60,12 @@
       <% end %>
 
 
-      <section class="row">
+      <section class="row container">
         <section>
         <%= yield %>
         </section>
       </section>
     </div>
-
+  
   </body>
 </html>

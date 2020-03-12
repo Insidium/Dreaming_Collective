@@ -1,5 +1,6 @@
 <h2>New Artist Registration</h2>
-
+<br>
+<%# Form to register as an artist %>
 <%= form_with model: @artist do |form| %>
     <p>
         <%= label(:nation, "Nation/Tribe") %>
@@ -17,3 +18,4 @@
     
     <%= form.submit "Register", class: "btn btn-success" %>
 <% end %>
+<p><%= link_to "Back", :back %></p>

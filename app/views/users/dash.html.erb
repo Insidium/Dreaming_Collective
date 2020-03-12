@@ -1,11 +1,15 @@
+<%# If user is signed in, show dashboard via name link and redirect post-login %>
 <% if user_signed_in? %>
-    <h1>Your Dashboard</h1>
-    <p>Welcome to your TDC dashboard. From here you can do all the things!</p>
-    <%= link_to "Buy Art", all_items_path, class:"btn btn-warning" %>
+    <h2>Your Dashboard</h2>
+    <p>Welcome to your TDC Dashboard. We're proud to have you with us.</p>
+    <%= link_to "Buy Art", all_items_path, class:"btn btn-primary" %>
+    <%= link_to "Your Purchases", purchases_path, class:"btn btn-info" %>
     <% if !current_user.artist %>
-        <%= link_to "Become An Artist", new_artist_path, class:"btn btn-info" %>
+        <%= link_to "Become An Artist", new_artist_path, class:"btn btn-dark" %>
     <% else %>
         <%= link_to "New Art Listing", new_item_path, class:"btn btn-success" %>
+        <%= link_to "Your Sales", sales_path, class:"btn btn-warning" %>
     <% end  %>
 <% end %>
+<hr>
 <p><%= link_to "Back", :back %></p>
