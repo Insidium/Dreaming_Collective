@@ -7,7 +7,7 @@
 <%= @artist.bio.html_safe %>
 <hr>
 <h3>Donate</h3>
-<%= form_with url:artist_donate_url(@artist.id) do |form| %>
+<%= form_with url:artist_donate_path(@artist.id) do |form| %>
 <%= form.number_field 'donate'%>
 <%= form.submit 'Donate'%>
 <% end %>
@@ -20,3 +20,4 @@
 <%end%>
 <hr>
 <p><%=link_to 'Back', :back%></p>
+<script src="https://js.stripe.com/v3/"></script>

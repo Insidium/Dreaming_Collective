@@ -54,16 +54,20 @@ class ArtistsController < ApplicationController
         @session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             line_items: [{
-              name: "Donate to #{@artist.user.first_name}",
+              name: "Donate to #{@artist.user.first_name} #{@artist.user.last_name}'s Community",
               description: "Donation",
               amount: (donation * 100).to_i,
               currency: 'aud',
               quantity: 1,
             }],
-            success_url: "#{root_url}orders/complete",
+            success_url: "#{root_url}artists/donate/complete",
             cancel_url: "#{root_url}",
             )
+
+        respond_to do |format|
+            format.js # render donate.js.erb
         end
+    end
     
     # Set artist params
     private 
