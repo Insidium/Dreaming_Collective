@@ -40,6 +40,11 @@ class OrdersController < ApplicationController
     p "item id #{item_id}"
     p "user id #{user_id}"
 
+    order = Order.new()
+    order.item_id = item_id
+    order.user_id = user_id
+    order.save
+
     render plain: "Success"
   end
 end
