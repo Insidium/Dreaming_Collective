@@ -4,8 +4,8 @@
 
 <%if @artists %>
     <% @artists.each do |artist|%>
-        <p><%=link_to "#{artist.user.first_name} #{artist.user.last_name}", artist_path(artist) %></p>
         <%= image_tag artist.artist_image, class: "img-thumbnail box", width: 200 if artist.artist_image.attached? %>
+        <p><%=link_to "#{artist.user.first_name} #{artist.user.last_name}", artist_path(artist) %></p>
     <%end%>
 <%end%>
 
