@@ -29,6 +29,11 @@ class OrdersController < ApplicationController
   def complete
   end
 
+  # Order history
+  def purchases
+    @purchases = Order.where(user_id: current_user.id)
+  end
+
   # Webhook to catch invalid transactions/confirm valid transactions 
   def webhook
     payment_id = params[:data][:object][:payment_intent]

@@ -18,10 +18,13 @@ Rails.application.routes.draw do
   #Create new artwork item
   get "/items/new", to: "items#new", as: "new_item"
   post "/items", to: "items#create"
+
   #Show all art
   get "/items/all", to: "items#index", as: "all_items"
+
   #Show individual piece of art
   get "/items/:id", to: "items#show", as: "item"
+
   # Remove item listing
   delete "/items/:id", to: "items#destroy"
 
@@ -36,13 +39,20 @@ Rails.application.routes.draw do
 
   #Show Artists
   get "/artists/all", to: "artists#index", as: "all_artists"
+
   # Show individual Artist
   get "/artists/:id", to: "artists#show", as: "artist"
+  
+  # Sales/Purchase History 
+  get "/orders/purchases", to: "orders#purchases", as: "purchases"
+  get "/artists/:id/sales", to: "artists#sales", as: "sales"
 
   #New Order
   get "/orders/new", to: "orders#new", as: "new_order"
+
   #Order complete
   get "/orders/complete", to: "orders#complete"
+
   #Order Webhook
   post "/orders/webhook", to: "orders#webhook"
 

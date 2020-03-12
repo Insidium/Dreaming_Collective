@@ -1,13 +1,16 @@
 
 <h2><%= @item.name%></h2>
 <%= image_tag @item.item_image, class: "img-thumbnail box", width: 400 if @item.item_image.attached? %>
-<%# <%= puts @item.artist.inspect %>
 <h5><strong><%= @item.artist.user.first_name%> <%= @item.artist.user.last_name%></strong></h5>
 <p><strong>Category:</strong> <%= @item.category%></p> 
 <p><em><%= @item.description%></em></p> 
 <% if @item.price %>
     <p><%= number_to_currency @item.price %></p>
     <% if user_signed_in? %>
-        <%= link_to "Buy Now", new_order_path(item_id: @item.id), class: "btn btn-success" %>
+        <% if !@item.order %>
+            <%= link_to "Buy Now", new_order_path(item_id: @item.id), class: "btn btn-success" %>
+        <% else %>
+            <p>Purchased by: <%= @item.order.user.first_name %> <%= @item.order.user.last_name %></p>
+        <% end %>
     <% end %>
 <% end  %>

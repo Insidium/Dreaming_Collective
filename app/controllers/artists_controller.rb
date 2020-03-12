@@ -15,6 +15,11 @@ class ArtistsController < ApplicationController
         @artist = Artist.new
         @artist.advocate = Advocate.first
     end
+
+    # Sales history
+    def sales
+        @sales = current_user.artist.items
+    end
     
     # Create new artist and send confirmation/throw error
     def create
