@@ -56,5 +56,6 @@ Rails.application.routes.draw do
   #Order Webhook
   post "/orders/webhook", to: "orders#webhook"
 
+  post "/artists/:id/donate", to: "artists#donate", as:"artist_donate"
 
 end

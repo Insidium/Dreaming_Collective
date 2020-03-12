@@ -47,6 +47,23 @@ class ArtistsController < ApplicationController
             redirect_to artist_path
         end
     end
+
+    def donate
+        @artist = Artist.find(params[:id])
+        donation = params[:donate].to_f
+        @session = Stripe::Checkout::Session.create(
+            payment_method_types: ['card'],
+            line_items: [{
+              name: "Donate to #{@artist.user.first_name}",
+              description: "Donation",
+              amount: (donation * 100).to_i,
+              currency: 'aud',
+              quantity: 1,
+            }],
+            success_url: "#{root_url}orders/complete",
+            cancel_url: "#{root_url}",
+            )
+        end
     
     # Set artist params
     private 

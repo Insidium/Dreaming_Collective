@@ -1,0 +1,16 @@
+<button id="pay-now" class="btn btn-success">Checkout Now</button>
+<%# Redirection to Stripe for purchases %>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+ document
+   .querySelector("[id='pay-now']")
+   .addEventListener("click", () => {
+     const stripe = Stripe(
+       "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+     );
+
+     stripe.redirectToCheckout({
+       sessionId: "<%= @session.id %>"
+     });
+   });
+</script>
