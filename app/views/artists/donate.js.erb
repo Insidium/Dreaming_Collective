@@ -1,3 +1,4 @@
+<%# JS for Stripe session creation for donations %>
 const stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public_key) %>');
 stripe.redirectToCheckout ({
     sessionId: '<%= @session.id %>'

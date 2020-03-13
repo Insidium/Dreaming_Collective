@@ -5,6 +5,7 @@
     <% @items.each do |item|%>
         <%= image_tag item.item_image, class: "img-thumbnail box", width: 200 if item.item_image.attached? %>
         <p><%= link_to item.name, item_path(item) %></p>
+        <%# If user is the owner of that artwork, display remove button for deletion of piece %>
         <% if user_signed_in? && current_user.id == item.artist.user_id %>
             <p><%= link_to 'Remove', item, method: "delete", class:"btn btn-danger"%></p>
         <% end %>

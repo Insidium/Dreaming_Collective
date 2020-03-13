@@ -11,7 +11,9 @@
   </head>
 
   <body>
+  <%# Navbar %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <%# TDC Logo  %>
       <a class="navbar-brand" href="/">
         <%= image_tag 'map-of-australia-painting.jpg', alt:"Hand Dot Painting Logo" %>
       </a>
@@ -47,6 +49,7 @@
         <% end %>
       </section>
     </nav>
+    <%# Alerts for confirmations of form submissions and also error handling %>
       <div class="container">
       <% if notice  %>
         <div class="alert alert-info" role="alert"><%= notice %></div>

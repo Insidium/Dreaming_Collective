@@ -1,7 +1,6 @@
 <h2>Check out our <span class="tdc-name">Artists</span></h2>
 <br>
 <%# Display all artists registered on TDC %>
-
 <%if @artists %>
     <% @artists.each do |artist|%>
         <%= image_tag artist.artist_image, class: "img-thumbnail box", width: 200 if artist.artist_image.attached? %>

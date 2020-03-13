@@ -48,6 +48,7 @@ class ArtistsController < ApplicationController
         end
     end
 
+    # Donation Stripe session and redirect for success/failure
     def donate
         @artist = Artist.find(params[:id])
         donation = params[:donate].to_f

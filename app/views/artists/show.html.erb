@@ -6,12 +6,14 @@
 <hr>
 <%= @artist.bio.html_safe %>
 <hr>
+<%# Form field with redirect to Stripe for donation to artist community %>
 <h3>Donate</h3>
 <%= form_with url:artist_donate_path(@artist.id) do |form| %>
 <%= form.number_field 'donate'%>
 <%= form.submit 'Donate'%>
 <% end %>
 <hr>
+<%# Show all artwork for this particular artist %>
 <h3>Gallery</h3>
 <hr>
 <% @artist.items.each do |item|%>
