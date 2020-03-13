@@ -1,4 +1,5 @@
 <h2>New Artist Registration</h2>
+
 <br>
 <%# Form to register as an artist %>
 <%= form_with model: @artist do |form| %>
@@ -15,7 +16,8 @@
        <%= form.file_field :artist_image, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
     </p>
     
-    
+    <hr>
     <%= form.submit "Register", class: "btn btn-success" %>
 <% end %>
-<p><%= link_to "Back", :back %></p>
+<br>
+<p><%= link_to "Back", :back, class: "btn btn-info" %></p>

@@ -1,13 +1,17 @@
 
 <h2>Edit Your Artist Bio</h2>
 <hr>
+<br>
 <%# Form for artist to edit profile %>
 <%= form_with model: @artist do |form| %>
 <%= form.label :bio, 'About Me' %>
 <%= form.text_area :bio, class: "tinymce", rows: 20, cols: 80 %>
 <%= tinymce %>
 <hr>
+<br>
 <%= form.submit %>
 <%end%>
+<br>
 <hr>
-<p><%= link_to "Back", :back %></p>
+<br>
+<p><%= link_to "Back", :back, class: "btn btn-info" %></p>
