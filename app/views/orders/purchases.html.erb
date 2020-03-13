@@ -4,9 +4,11 @@
 <%# if user is signed in as artist or non-artist, show purchased items list %>
     <%if user_signed_in?%>
         <% @purchases.each do |order|%>
-        <%= image_tag order.item.item_image, class: "img-thumbnail box", width: 400 if order.item.item_image.attached? %>
+        <%= image_tag order.item.item_image, class: "img-thumbnail box", width: 200 if order.item.item_image.attached? %>
         <p><%= order.item.name %></p>
-        <%= link_to 'Show', item_path(order.item.id) %>|
+        <hr>
+        <%= link_to 'Show', item_path(order.item.id) %>
+        <hr>
         <%end%>
     <%end%>
 </div>

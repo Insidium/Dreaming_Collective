@@ -4,13 +4,14 @@
     <%# If user is signed in as an artist, display their sales history %>
     <%if user_signed_in?%>
         <% @sales.each do |item|%>
-        <%= image_tag item.item_image, class: "img-thumbnail box", width: 400 if item.item_image.attached? %>
+        <%= image_tag item.item_image, class: "img-thumbnail box", width: 200 if item.item_image.attached? %>
         <p><%= item.name %></p>
         <% if item.order %>
             <p>Purchased by: <%= item.order.user.first_name %> <%= item.order.user.last_name %></p>
         <%end%>
         <%= link_to 'Show', item_path(item.id) %>|
         <%= link_to 'Back', :back %>
+        <hr>
         <%end%>
     <%end%>
 </div>
