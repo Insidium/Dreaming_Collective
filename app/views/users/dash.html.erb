@@ -8,8 +8,8 @@
         <%= link_to "Become An Artist", new_artist_path, class:"btn btn-dark" %>
     <% else %>
         <%= link_to "New Art Listing", new_item_path, class:"btn btn-success" %>
-        <%= link_to "Your Sales", sales_path, class:"btn btn-warning" %>
-        <%= link_to "Edit Your Bio", edit_artist_path, class:"btn btn-danger" %>
+        <%= link_to "Your Sales", sales_path(current_user.artist.id), class:"btn btn-warning" %>
+        <%= link_to "Edit Your Bio", edit_artist_path(current_user.artist.id), class:"btn btn-danger" %>
     <% end  %>
 <% end %>
 <hr>
