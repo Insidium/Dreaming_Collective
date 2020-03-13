@@ -2,8 +2,8 @@
 <h2><%= @artist.user.first_name %> <%= @artist.user.last_name %></h2>
 <hr>
 <%= image_tag @artist.artist_image, class: "img-thumbnail box", width: 200 if @artist.artist_image.attached? %>
-<h5>About Me</h5>
 <hr>
+<h5>About Me</h5>
 <%= @artist.bio.html_safe %>
 <hr>
 <%# Form field with redirect to Stripe for donation to artist community %>
@@ -17,7 +17,7 @@
 <h3>Gallery</h3>
 <hr>
 <% @artist.items.each do |item|%>
-    <%= image_tag item.item_image, class: "img-thumbnail box", width: 200 if item.item_image.attached? %>
+    <%= image_tag item.item_image, class: "img-thumbnail box", width: 400 if item.item_image.attached? %>
     <p><%= link_to item.name, item_path(item) %></p>
 <%end%>
 <hr>

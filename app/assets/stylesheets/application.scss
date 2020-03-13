@@ -13,11 +13,7 @@
  @import "bootstrap";
 
  body {
-    min-height: 100vh;
-    background-image: url(image_path("#"));
-    background-repeat: repeat;
-    background-position: right bottom;
-    background-attachment: fixed;
+    background-color: #f7f7f7;
 }
 
 h1, h2{
