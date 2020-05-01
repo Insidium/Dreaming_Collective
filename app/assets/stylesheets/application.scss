@@ -10,43 +10,44 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
- @import "bootstrap";
+@import "bootstrap";
 
- body {
-    background-color: #f7f7f7;
+body {
+  background-color: #f7f7f7;
 }
 
-h1, h2{
-    padding: 2rem 0;
+h1,
+h2 {
+  padding: 2rem 0;
 }
 
 table {
-    margin: 2rem 2rem;
+  margin: 2rem 2rem;
 }
 
 td {
-    padding-right: 1rem;
+  padding-right: 1rem;
 }
 
 img {
-    display: inline-block;
+  display: inline-block;
 }
 
 #username {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .tdc-name {
-    color: #9f2325;
+  color: #9f2325;
 }
 
 .home-container {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 
-// .grid-container {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
-//     grid-gap: 6px; 
-// }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
