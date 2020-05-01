@@ -19,6 +19,7 @@ body {
 h1,
 h2 {
   padding: 2rem 0;
+  text-align: center;
 }
 
 table {
@@ -46,7 +47,7 @@ img {
   margin: 0 auto;
 }
 
-.container {
+.row.container {
   display: flex;
   justify-content: center;
   align-items: center;
